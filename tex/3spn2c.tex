@@ -52,3 +52,37 @@ each chemical moiety.
 \subsection{Potentials}
 \label{subsec:dna_3spn2c_potential}
 
+The 3SPN.2C potentials can be devided into two parts, as usual, bonded, and
+nonbonded:
+\begin{displaymath}
+  U = U_b + U_{nb}
+\end{displaymath}
+
+The bonded potentials include the following terms:
+\begin{itemize}
+\item bonds ($U_{bond}$),
+\item angles ($U_{ang}$),
+\item dihedral angles ($U_{dih}$).
+\end{itemize}
+\begin{equation}
+  \label{eq:dna_3spn2c_local}
+  U_b = U_{bond} + U_{ang} + U_{dih}
+\end{equation}
+
+The nonbonded potentials include these terms:
+\begin{itemize}
+\item base-base interactions:
+  \begin{itemize}
+  \item base stacking ($U_{bstk}$),
+  \item base pairing ($U_{bp}$),
+  \item cross base stacking ($U_{cstk}$),
+  \end{itemize}
+\item excluded volume interactions ($U_{exv}$),
+\item electrostatic interactions ($U_{ele}$).
+\end{itemize}
+\begin{equation}
+  \label{eq:dna_3spn2c_nonlocal}
+  U_{nb} = U_{bp} + U_{bstk} + U_{cstk} + U_{exv} + U_{ele}
+\end{equation}
+
+
