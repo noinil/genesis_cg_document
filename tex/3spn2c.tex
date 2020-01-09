@@ -86,3 +86,72 @@ The nonbonded potentials include these terms:
 \end{equation}
 
 
+\subsubsection{Bond}
+\label{sec:dna_3spn2c_potential_bond}
+
+\begin{smallpage}{3SPN.2C bond potential}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_local_bond}
+    U_{bond} = \sum_{i}^{bonds} k_b (r_i - r_{i,0})^2 + 100 k_b (r_i - r_{i,0})^4
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Involved particles:
+    \begin{itemize}
+    \item P--S
+    \item S--B
+    \item S--P
+    \end{itemize}
+  \item $r_{i, 0}$: based on the structure of B-form DNA.
+  \item $k_b = 0.6\ \mathrm{kJ/mol/\angstrom^2}$.
+  \end{itemize}
+\end{smallpage}
+
+
+
+\subsubsection{Angle}
+\label{sec:dna_3spn2c_potential_angle}
+
+\begin{smallpage}{3SPN.2C bond angle potential}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_local_angle}
+    U_{ang} = \sum_{i}^{angles} k_\theta (\theta_i - \theta_{i,0})^2
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Involved particles:
+    \begin{itemize}
+    \item P--S--P
+    \item S--P--S
+    \item P--S--B
+    \item B--S--P
+    \end{itemize}
+  \item $\theta_{i, 0}$: based on the structure of B-form DNA.
+  \item $k_\theta$: see the tables in below: (unit: $\mathrm{kJ/mol/rad^2}$) 
+  \end{itemize}
+  \begin{center}
+    \begin{tabular}{l|cl|cl|cl|cl}
+      \toprule
+      \emph{PSP} & all & \multicolumn{7}{l}{300}\\
+      \midrule
+      \multirow{4}{*}{\emph{SPS}} &
+      AA & 355 & AT & 147 & AC & 464 & AG & 368 \\
+      & TA & 230 & TT & 355 & TC & 442 & TG & 273 \\
+      & CA & 273 & CT & 368 & CC & 165 & CG & 478 \\
+      & GA & 442 & GT & 464 & GC & 228 & GG & 165 \\
+      \midrule
+      \multirow{4}{*}{\emph{PSB}} &
+      AA & 460 & TA & 120 & CA & 206 & GA & 383 \\
+      & AT & 370 & TT & 460 & CT & 358 & GT & 442 \\
+      & AC & 442 & TC & 383 & CC & 278 & GC & 336 \\
+      & AG & 358 & TG & 206 & CG & 278 & GG & 278 \\
+      \midrule
+      \multirow{4}{*}{\emph{BSP}} &
+      AA & 460 & AT & 370 & AC & 442 & AG & 358 \\
+      & TA & 120 & TT & 460 & TC & 383 & TG & 206 \\
+      & CA & 206 & CT & 358 & CC & 278 & CG & 278 \\
+      & GA & 383 & GT & 442 & GC & 336 & GG & 278 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{smallpage}
