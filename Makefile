@@ -10,4 +10,4 @@ all :
 	$(COMPILE) $(TEXFILE)
 clean :
 	$(COMPILE) -C
-	@$(RM) auto/ tex/auto/ tex/*.aux *.nav *.vrb *.snm _minted-cheatsheet
+	@$(RM) auto/ tex/auto/ tex/*.aux *.nav *.vrb *.snm _minted-$(TEXFILE)
