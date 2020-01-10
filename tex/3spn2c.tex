@@ -55,7 +55,7 @@ each chemical moiety.
 The 3SPN.2C potentials can be devided into two parts, as usual, bonded, and
 nonbonded:
 \begin{displaymath}
-  U = U_b + U_{nb}
+  U = U_b + U_{nb}.
 \end{displaymath}
 
 The bonded potentials include the following terms:
@@ -66,7 +66,7 @@ The bonded potentials include the following terms:
 \end{itemize}
 \begin{equation}
   \label{eq:dna_3spn2c_local}
-  U_b = U_{bond} + U_{ang} + U_{dih}
+  U_b = U_{bond} + U_{ang} + U_{dih}.
 \end{equation}
 
 The nonbonded potentials include these terms:
@@ -82,7 +82,7 @@ The nonbonded potentials include these terms:
 \end{itemize}
 \begin{equation}
   \label{eq:dna_3spn2c_nonlocal}
-  U_{nb} = U_{bp} + U_{bstk} + U_{cstk} + U_{exv} + U_{ele}
+  U_{nb} = U_{bp} + U_{bstk} + U_{cstk} + U_{exv} + U_{ele}.
 \end{equation}
 
 
@@ -92,7 +92,7 @@ The nonbonded potentials include these terms:
 \begin{smallpage}{3SPN.2C bond potential}<white>
   \begin{equation}
     \label{eq:dna_3spn2c_local_bond}
-    U_{bond} = \sum_{i}^{bonds} k_b (r_i - r_{i,0})^2 + 100 k_b (r_i - r_{i,0})^4
+    U_{bond} = \sum_{i}^{bonds} k_b (r_i - r_{i,0})^2 + 100 k_b (r_i - r_{i,0})^4.
   \end{equation}
   \tcblower
   \begin{itemize}
@@ -115,7 +115,7 @@ The nonbonded potentials include these terms:
 \begin{smallpage}{3SPN.2C bond angle potential}<white>
   \begin{equation}
     \label{eq:dna_3spn2c_local_angle}
-    U_{ang} = \sum_{i}^{angles} k_\theta (\theta_i - \theta_{i,0})^2
+    U_{ang} = \sum_{i}^{angles} k_\theta (\theta_i - \theta_{i,0})^2.
   \end{equation}
   \tcblower
   \begin{itemize}
@@ -127,7 +127,7 @@ The nonbonded potentials include these terms:
     \item B--S--P
     \end{itemize}
   \item $\theta_{i, 0}$: based on the structure of B-form DNA.
-  \item $k_\theta$: see the tables in below: (unit: $\mathrm{kJ/mol/rad^2}$) 
+  \item $k_\theta$: see the tables below: (unit: $\mathrm{kJ/mol/rad^2}$) 
   \end{itemize}
   \begin{center}
     \begin{tabular}{l|cl|cl|cl|cl}
@@ -154,4 +154,55 @@ The nonbonded potentials include these terms:
       \bottomrule
     \end{tabular}
   \end{center}
+\end{smallpage}
+
+\subsubsection{Dihedral Angle}
+\label{sec:dna_3spn2c_potential_angle}
+
+The dihedral angle potential in the 3SPN.2C model contains two parts:
+\begin{enumerate}
+\item A strong Gaussian type potential applied on the backbone dihedrals
+  ($U_{dih, Gaussian}$);
+\item A weak periodic potential applied on all dihedral angles ($U_{dih, periodic}$).
+\end{enumerate}
+\begin{equation}
+  \label{eq:dna_3spn2c_local_dihedral}
+  U_{dih} = U_{dih, Gaussian} + U_{dih, periodic}.
+\end{equation}
+
+\begin{smallpage}{3SPN.2C dihedral angle potential (Gaussian)}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_local_dihedral_Gaussian}
+    U_{dih, Gaussian} = \sum_{i}^{dihedrals} -k_{ \phi, Gaussian } \exp\big( \frac{-(\phi_i - \phi_{i,0})^2}{2\sigma_{\phi}^2} \big).
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Involved particles:
+    \begin{itemize}
+    \item P--S--P--S
+    \item S--P--S--P
+    \end{itemize}
+  \item $\phi_{i, 0}$: based on the structure of B-form DNA.
+  \item $k_{\phi, Gaussian} = 7.0\ \mathrm{kJ/mol}$.
+  \item $\sigma_\phi = 0.3\ \mathrm{rad^2}$.
+  \end{itemize}
+\end{smallpage}
+
+\begin{smallpage}{3SPN.2C dihedral angle potential (periodic)}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_local_dihedral_periodic}
+    U_{dih, periodic} = k_{\phi, periodic} [1+\cos(\phi_i - \phi_{ i,0 })].
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Involved particles:
+    \begin{itemize}
+    \item P--S--P--S
+    \item S--P--S--P
+    \item S--P--S--B
+    \item B--S--P--S
+    \end{itemize}
+  \item $\phi_{i, 0}$: based on the structure of B-form DNA.
+  \item $k_{\phi, periodic} = 2.0\ \mathrm{kJ/mol}$.
+  \end{itemize}
 \end{smallpage}
