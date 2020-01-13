@@ -96,11 +96,11 @@ The nonbonded potentials include these terms:
   \end{equation}
   \tcblower
   \begin{itemize}
-  \item Involved particles:
+  \item Bonds involved:
     \begin{itemize}
-    \item P--S
-    \item S--B
-    \item S--P
+    \item P-S
+    \item S-B
+    \item S-P
     \end{itemize}
   \item $r_{i, 0}$: based on the structure of B-form DNA.
   \item $k_b = 0.6\ \mathrm{kJ/mol/\angstrom^2}$.
@@ -119,15 +119,15 @@ The nonbonded potentials include these terms:
   \end{equation}
   \tcblower
   \begin{itemize}
-  \item Involved particles:
+  \item Angles involved:
     \begin{itemize}
-    \item P--S--P
-    \item S--P--S
-    \item P--S--B
-    \item B--S--P
+    \item P-S-P
+    \item S-P-S
+    \item P-S-B
+    \item B-S-P
     \end{itemize}
   \item $\theta_{i, 0}$: based on the structure of B-form DNA.
-  \item $k_\theta$: see the tables below: (unit: $\mathrm{kJ/mol/rad^2}$)
+  \item $k_\theta$: see the table below: (unit: $\mathrm{kJ/mol/rad^2}$)
   \end{itemize}
   \begin{center}
     \begin{tabular}{l|cl|cl|cl|cl}
@@ -177,10 +177,10 @@ The dihedral angle potential in the 3SPN.2C model contains two parts:
   \end{equation}
   \tcblower
   \begin{itemize}
-  \item Involved particles:
+  \item Dihedral angles involved:
     \begin{itemize}
-    \item P--S--P--S
-    \item S--P--S--P
+    \item P-S-P-S
+    \item S-P-S-P
     \end{itemize}
   \item $\phi_{i, 0}$: based on the structure of B-form DNA.
   \item $k_{\phi, Gaussian} = 7.0\ \mathrm{kJ/mol}$.
@@ -195,12 +195,12 @@ The dihedral angle potential in the 3SPN.2C model contains two parts:
   \end{equation}
   \tcblower
   \begin{itemize}
-  \item Involved particles:
+  \item Dihedral angles involved:
     \begin{itemize}
-    \item P--S--P--S
-    \item S--P--S--P
-    \item S--P--S--B
-    \item B--S--P--S
+    \item P-S-P-S
+    \item S-P-S-P
+    \item S-P-S-B
+    \item B-S-P-S
     \end{itemize}
   \item $\phi_{i, 0}$: based on the structure of B-form DNA.
   \item $k_{\phi, periodic} = 2.0\ \mathrm{kJ/mol}$.
@@ -247,6 +247,11 @@ base-interaction potentials:
   \end{cases}
 \end{equation}
 
+In Equation~\ref{eq:dna_3spn2c_nonlocal_base_rep} and
+\ref{eq:dna_3spn2c_nonlocal_base_attr}, $r_{ij}$ is the distance between
+particle $i$ and $j$, whereas $\epsilon_{ij}$ and $\alpha_{ij}$ are sequence
+dependent parameters.
+
 \begin{equation}
   \label{eq:dna_3spn2c_nonlocal_base_angle_mod}
   f(K, \Delta \theta) =
@@ -256,3 +261,61 @@ base-interaction potentials:
     0 & \displaystyle \Delta \theta < -\frac{\pi}{K} \textrm{ or }  \Delta \theta > \frac{\pi}{K} \\
   \end{cases}
 \end{equation}
+
+The $\theta$ in Equation~\ref{eq:dna_3spn2c_nonlocal_base_angle_mod} has
+different definitions in $U_{bstk}$, $U_{bp}$, and $U_{cstk}$.
+
+For the base-stacking interactions, $\theta_{BS}$ is the angle formed by
+\circled{1}-\circled{2}-\circled{6}
+(Figure~\ref{fig:DNA_3spn2c_nonbonded_bstk}).
+
+Practically, we treat the $U_{bstk}$ as a ``local'' potential, because all the
+interactions can be determined by the topology, regardless of the conformation.
+Besides, the order of magnitude of computational cost of $U_{bstk}$ is only
+$\mathcal{O}(n)$, where $n$ is the number of basepairs in DNA.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.2\textwidth]{figures/DNA_3spn2c_nonbonded_bstk.png}
+  \caption{Definition of $\theta_{BS}$ in the base-stacking interactions.}
+  \label{fig:DNA_3spn2c_nonbonded_bstk}
+\end{figure}
+
+\begin{smallpage}{3SPN.2C base-stacking potential}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_nonlocal_base_stacking}
+    U_{bstk} = \sum^{n_{bstk}} U_m^{rep}(\epsilon_{BS, ij}, \alpha_{BS}, r_{ij}) +
+    f(K_{BS}, \Delta\theta_{BS, ij})
+    U_m^{attr} (\epsilon_{BS, ij}, \alpha_{BS}, r_{ij})
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Particles involved:
+    \begin{itemize}
+    \item $r_{ij}$: \circled{2}-\circled{6} (see
+      Figure~\ref{fig:DNA_3spn2c_nonbonded_all} and \ref{fig:DNA_3spn2c_nonbonded_bstk})
+    \item $\theta_{BS}$: \circled{1}-\circled{2}-\circled{6} (see
+      Figure~\ref{fig:DNA_3spn2c_nonbonded_all} and \ref{fig:DNA_3spn2c_nonbonded_bstk})
+    \end{itemize}
+  \item $\alpha_{BS} = 3.0$
+  \item $K_{BS} = 6.0$
+  \item $\epsilon_{BS, ij}$, $r_{ij, 0}$, and $\theta_{BS, 0}$: see the table below:
+  \end{itemize}
+  \begin{center}
+    \begin{footnotesize}
+      \begin{tabular}{ll|rrrr|rrrr|rrrr}
+        \toprule
+        & &  \multicolumn{12}{c}{\circled{6}}\\
+        \midrule
+        & &  \multicolumn{4}{c|}{$\epsilon_{BS, ij}$ (kJ/mol)} & \multicolumn{4}{c|}{$r_{ij, 0}$ (\angstrom)} & \multicolumn{4}{c}{$\theta_{BS, 0}$ ($^\circ$)}\\
+        & & A & T & G & C & A & T & G & C & A & T & G & C \\
+        \multirow{4}{*}{\circled{2}}
+        & A & 13.82 & 15.05 & 13.32 & 15.82 & 3.58 & 3.56 & 3.85 & 3.45 & 100.13 & 90.48 & 104.39 &  93.23  \\
+        & T &  9.15 & 12.44 &  9.58 & 13.11 & 4.15 & 3.93 & 4.32 & 3.87 & 102.59 & 93.32 & 103.70 &  94.55  \\
+        & G & 13.76 & 14.59 & 14.77 & 15.17 & 3.51 & 3.47 & 3.67 & 3.42 &  95.45 & 87.63 & 106.36 &  83.12  \\
+        & C &  9.25 & 12.42 &  8.83 & 14.01 & 4.15 & 3.99 & 4.34 & 3.84 & 102.69 & 96.05 & 100.46 & 100.68 \\
+        \bottomrule
+      \end{tabular}
+    \end{footnotesize}
+  \end{center}
+\end{smallpage}
