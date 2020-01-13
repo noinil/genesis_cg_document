@@ -127,7 +127,7 @@ The nonbonded potentials include these terms:
     \item B--S--P
     \end{itemize}
   \item $\theta_{i, 0}$: based on the structure of B-form DNA.
-  \item $k_\theta$: see the tables below: (unit: $\mathrm{kJ/mol/rad^2}$) 
+  \item $k_\theta$: see the tables below: (unit: $\mathrm{kJ/mol/rad^2}$)
   \end{itemize}
   \begin{center}
     \begin{tabular}{l|cl|cl|cl|cl}
@@ -135,22 +135,22 @@ The nonbonded potentials include these terms:
       \emph{PSP} & all & \multicolumn{7}{l}{300}\\
       \midrule
       \multirow{4}{*}{\emph{SPS}} &
-      AA & 355 & AT & 147 & AC & 464 & AG & 368 \\
-      & TA & 230 & TT & 355 & TC & 442 & TG & 273 \\
-      & CA & 273 & CT & 368 & CC & 165 & CG & 478 \\
-      & GA & 442 & GT & 464 & GC & 228 & GG & 165 \\
+                                    AA & 355 & AT & 147 & AC & 464 & AG & 368 \\
+                 & TA & 230 & TT & 355 & TC & 442 & TG & 273 \\
+                 & CA & 273 & CT & 368 & CC & 165 & CG & 478 \\
+                 & GA & 442 & GT & 464 & GC & 228 & GG & 165 \\
       \midrule
       \multirow{4}{*}{\emph{PSB}} &
-      AA & 460 & TA & 120 & CA & 206 & GA & 383 \\
-      & AT & 370 & TT & 460 & CT & 358 & GT & 442 \\
-      & AC & 442 & TC & 383 & CC & 278 & GC & 336 \\
-      & AG & 358 & TG & 206 & CG & 278 & GG & 278 \\
+                                    AA & 460 & TA & 120 & CA & 206 & GA & 383 \\
+                 & AT & 370 & TT & 460 & CT & 358 & GT & 442 \\
+                 & AC & 442 & TC & 383 & CC & 278 & GC & 336 \\
+                 & AG & 358 & TG & 206 & CG & 278 & GG & 278 \\
       \midrule
       \multirow{4}{*}{\emph{BSP}} &
-      AA & 460 & AT & 370 & AC & 442 & AG & 358 \\
-      & TA & 120 & TT & 460 & TC & 383 & TG & 206 \\
-      & CA & 206 & CT & 358 & CC & 278 & CG & 278 \\
-      & GA & 383 & GT & 442 & GC & 336 & GG & 278 \\
+                                    AA & 460 & AT & 370 & AC & 442 & AG & 358 \\
+                 & TA & 120 & TT & 460 & TC & 383 & TG & 206 \\
+                 & CA & 206 & CT & 358 & CC & 278 & CG & 278 \\
+                 & GA & 383 & GT & 442 & GC & 336 & GG & 278 \\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -219,10 +219,40 @@ base-base interaction terms (see Figure~\ref{fig:DNA_3spn2c_nonbonded_all}).
   \centering
   \includegraphics[width=0.45\textwidth]{figures/DNA_3spn2c_nonbonded_all.png}
   \caption{The base-related nonbonded interactions among DNA CG particles.  Here
-  we introduce local indices (circled numbers) for easy understanding.  The
-  base-stacking interactinos are calculated for the neighboring bases.  The
-  base-pairing interactions are considered for Watson-Crick pairs, namely, the A-T
-  and G-C pairs.   Whereas the cross-stacking terms are only considered for
-  bases next to the pairsing bases.}
+    we introduce local indices (circled numbers) for easy understanding.  The
+    base-stacking interactinos are calculated for the neighboring bases
+    ($U_{bstk}$).  The base-pairing interactions are considered for Watson-Crick
+    pairs, namely, the A-T and G-C pairs ($U_{bp}$).  Whereas the cross-stacking
+    terms are only considered for bases next to the pairsing bases ($U_{cstk}$).}
   \label{fig:DNA_3spn2c_nonbonded_all}
 \end{figure}
+
+We would like to also define several common functions used by the
+base-interaction potentials:
+\begin{equation}
+  \label{eq:dna_3spn2c_nonlocal_base_rep}
+  U_m^{rep}(\epsilon_{ij}, \alpha_{ij}, r_{ij}) =
+  \begin{cases}
+    \epsilon_{ij} \Big( 1-e^{\big(-\alpha_{ij}(r_{ij}-r_{ij,0})\big)} \Big)^2 & r_{ij} < r_{ij, 0} \\[.5em]
+    0 & r_{ij} \ge r_{ij, 0}
+  \end{cases}
+\end{equation}
+
+\begin{equation}
+  \label{eq:dna_3spn2c_nonlocal_base_attr}
+  U_m^{attr}(\epsilon_{ij}, \alpha_{ij}, r_{ij}) =
+  \begin{cases}
+    -\epsilon_{ij} & r_{ij} < r_{ij, 0} \\[.5em]
+    \epsilon_{ij} \Big(1-e^{\big(-\alpha_{ij}(r_{ij}-r_{ij,0})\big)} \Big)^2 - \epsilon_{ij} & r_{ij} \ge r_{ij, 0}
+  \end{cases}
+\end{equation}
+
+\begin{equation}
+  \label{eq:dna_3spn2c_nonlocal_base_angle_mod}
+  f(K, \Delta \theta) =
+  \begin{cases}
+    1 & \displaystyle -\frac{\pi}{2K} < \Delta \theta < \frac{\pi}{2K} \\[.7em]
+    1 - \cos^2(K\Delta\theta) & \displaystyle -\frac{\pi}{K} < \Delta \theta < -\frac{\pi}{2K} \textrm{ or } \frac{\pi}{2K} < \Delta \theta < \frac{\pi}{K} \\[.7em]
+    0 & \displaystyle \Delta \theta < -\frac{\pi}{K} \textrm{ or }  \Delta \theta > \frac{\pi}{K} \\
+  \end{cases}
+\end{equation}
