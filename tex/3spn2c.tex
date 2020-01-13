@@ -233,8 +233,8 @@ base-interaction potentials:
   \label{eq:dna_3spn2c_nonlocal_base_rep}
   U_m^{rep}(\epsilon_{ij}, \alpha_{ij}, r_{ij}) =
   \begin{cases}
-    \epsilon_{ij} \Big( 1-e^{\big(-\alpha_{ij}(r_{ij}-r_{ij,0})\big)} \Big)^2 & r_{ij} < r_{ij, 0} \\[.5em]
-    0 & r_{ij} \ge r_{ij, 0}
+    \epsilon_{ij} \Big( 1-e^{\big(-\alpha_{ij}(r_{ij}-r_{ij,0})\big)} \Big)^2 & r_{ij} < r_{ij, 0}, \\[.5em]
+    0 & r_{ij} \ge r_{ij, 0}.
   \end{cases}
 \end{equation}
 
@@ -242,8 +242,8 @@ base-interaction potentials:
   \label{eq:dna_3spn2c_nonlocal_base_attr}
   U_m^{attr}(\epsilon_{ij}, \alpha_{ij}, r_{ij}) =
   \begin{cases}
-    -\epsilon_{ij} & r_{ij} < r_{ij, 0} \\[.5em]
-    \epsilon_{ij} \Big(1-e^{\big(-\alpha_{ij}(r_{ij}-r_{ij,0})\big)} \Big)^2 - \epsilon_{ij} & r_{ij} \ge r_{ij, 0}
+    -\epsilon_{ij} & r_{ij} < r_{ij, 0}, \\[.5em]
+    \epsilon_{ij} \Big(1-e^{\big(-\alpha_{ij}(r_{ij}-r_{ij,0})\big)} \Big)^2 - \epsilon_{ij} & r_{ij} \ge r_{ij, 0}.
   \end{cases}
 \end{equation}
 
@@ -256,9 +256,9 @@ dependent parameters.
   \label{eq:dna_3spn2c_nonlocal_base_angle_mod}
   f(K, \Delta \theta) =
   \begin{cases}
-    1 & \displaystyle -\frac{\pi}{2K} < \Delta \theta < \frac{\pi}{2K} \\[.7em]
-    1 - \cos^2(K\Delta\theta) & \displaystyle -\frac{\pi}{K} < \Delta \theta < -\frac{\pi}{2K} \textrm{ or } \frac{\pi}{2K} < \Delta \theta < \frac{\pi}{K} \\[.7em]
-    0 & \displaystyle \Delta \theta < -\frac{\pi}{K} \textrm{ or }  \Delta \theta > \frac{\pi}{K} \\
+    1 & \displaystyle -\frac{\pi}{2K} < \Delta \theta < \frac{\pi}{2K}, \\[.7em]
+    1 - \cos^2(K\Delta\theta) & \displaystyle -\frac{\pi}{K} < \Delta \theta < -\frac{\pi}{2K} \textrm{ or } \frac{\pi}{2K} < \Delta \theta < \frac{\pi}{K}, \\[.7em]
+    0 & \displaystyle \Delta \theta < -\frac{\pi}{K} \textrm{ or }  \Delta \theta > \frac{\pi}{K}. \\
   \end{cases}
 \end{equation}
 
@@ -286,7 +286,7 @@ $\mathcal{O}(n)$, where $n$ is the number of basepairs in DNA.
     \label{eq:dna_3spn2c_nonlocal_base_stacking}
     U_{bstk} = \sum^{n_{bstk}} U_m^{rep}(\epsilon_{BS, ij}, \alpha_{BS}, r_{ij}) +
     f(K_{BS}, \Delta\theta_{BS})
-    U_m^{attr} (\epsilon_{BS, ij}, \alpha_{BS}, r_{ij})
+    U_m^{attr} (\epsilon_{BS, ij}, \alpha_{BS}, r_{ij}).
   \end{equation}
   \tcblower
   \begin{itemize}
@@ -295,8 +295,8 @@ $\mathcal{O}(n)$, where $n$ is the number of basepairs in DNA.
     \item $r_{ij}$: \circled{2}-\circled{6}
     \item $\theta_{BS}$: \circled{1}-\circled{2}-\circled{6}
     \end{itemize}
-  \item $\alpha_{BS} = 3.0$
-  \item $K_{BS} = 6.0$
+  \item $\alpha_{BS} = 3.0$.
+  \item $K_{BS} = 6.0$.
   \item $\epsilon_{BS, ij}$, $r_{ij, 0}$, and $\theta_{BS, 0}$: see the table below:
   \end{itemize}
   \begin{center}
@@ -356,11 +356,11 @@ the following conditions:
            &+ \frac{1}{2} \big( 1+\cos(\Delta \phi_1) \big)
              f(K_{BP}, \Delta\theta_{1})
              f(K_{BP}, \Delta\theta_{2})
-             U_m^{attr} (\epsilon_{BP, ij}, \alpha_{BP}, r_{ij})
+             U_m^{attr} (\epsilon_{BP, ij}, \alpha_{BP}, r_{ij}).
              \label{eq:dna_3spn2c_nonlocal_base_pairing} \\[.5em]
     U_{cstk} &= \sum^{n_{cstk}} f(K_{BP}, \Delta\theta_{3})
                f(K_{CS}, \Delta\theta_{CS})
-               U_m^{attr} (\epsilon_{CS, kl}, \alpha_{CS}, r_{kl})
+               U_m^{attr} (\epsilon_{CS, kl}, \alpha_{CS}, r_{kl}).
                \label{eq:dna_3spn2c_nonlocal_cross_stacking}
   \end{align}
   \tcblower
@@ -375,10 +375,10 @@ the following conditions:
     \item $\phi_{1}$: dihedral angle \circled{1}-\circled{2}-\circled{4}-\circled{3}
     \item $\theta_{CS}$: \circled{1}-\circled{2}-\circled{5} or \circled{3}-\circled{4}-\circled{6}
     \end{itemize}
-  \item $\alpha_{BP} = 2.0$
-  \item $K_{BP} = 12.0$
-  \item $\alpha_{CS} = 4.0$
-  \item $K_{CS} = 8.0$
+  \item $\alpha_{BP} = 2.0$.
+  \item $K_{BP} = 12.0$.
+  \item $\alpha_{CS} = 4.0$.
+  \item $K_{CS} = 8.0$.
   \item All the other parameters are listed in the table below:
   \end{itemize}
   \begin{center}
@@ -436,6 +436,44 @@ the following conditions:
 
 
 
-% \subsubsection{Excluded-Volume Interactions}
-% \label{sec:dna_3spn2c_potential_exv}
+\subsubsection{Excluded-Volume Interactions}
+\label{sec:dna_3spn2c_potential_exv}
 
+
+\begin{smallpage}{3SPN.2C excluded volume interaction}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_nonlocal_exv}
+    U_{exv} = \sum_{i<j}
+    \begin{cases}\displaystyle
+      \epsilon_r\bigg[ \Big(\frac{\sigma_{ij}}{r_{ij}} \Big)^{12} - 2 \Big(\frac{\sigma_{ij}}{r_{ij}} \Big)^6 \bigg]+ \epsilon_r & r < \sigma_{ij},  \\
+      0 & r > \sigma_{ij}.
+    \end{cases}
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item $i, j$ are all pairs of CG particles that are \emph{not} in the
+    following list:
+    \begin{itemize}
+    \item bonded (involved in bonds, angles, or dihedrals);
+    \item particles in the neighboring nucleotides;
+    \item Watson-Crick base pairs.
+    \end{itemize}
+  \item $\epsilon_{r} = 1.0$ kJ/mol.
+  \item $\displaystyle \sigma_{ij} = \frac{1}{2}\big( \sigma_i + \sigma_j
+    \big)$, where $\sigma_i$ ($\sigma_j$) is listed below:
+  \end{itemize}
+  \begin{center}
+    \begin{tabular}{lc}
+      \toprule
+      Particle Type    & $\sigma$ ($\angstrom$) \\
+      \midrule
+      P  &  4.5 \\
+      S  &  6.2 \\
+      A  &  5.4 \\
+      C  &  6.4 \\
+      G  &  4.9 \\
+      T  &  7.1 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{smallpage}
