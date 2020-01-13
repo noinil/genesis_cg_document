@@ -337,6 +337,16 @@ potentials (Figure~\ref{fig:DNA_3spn2c_nonbonded_bp_cstk}).
   \label{fig:DNA_3spn2c_nonbonded_bp_cstk}
 \end{figure}
 
+Note that the base pairsing interactions are considered when two bases satisfy
+the following conditions:
+\begin{itemize}
+\item Base types can form Watson-Crick pairs: A-T, T-A, C-G, or G-C;
+\item Base indices $i$ and $j$ are ``nonlocal'':
+  \begin{itemize}
+  \item $i$ and $j$ are in different strands;
+  \item $i$ and $j$ are in the same strand, but $| i - j | > 10$.
+  \end{itemize}
+\end{itemize}
 
 
 \begin{smallpage}{3SPN.2C base-pairing and cross-stacking potential}<white>
