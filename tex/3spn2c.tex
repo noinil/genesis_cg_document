@@ -82,7 +82,7 @@ The nonbonded potentials include these terms:
 \end{itemize}
 \begin{equation}
   \label{eq:dna_3spn2c_nonlocal}
-  U_{nb} = U_{bp} + U_{bstk} + U_{cstk} + U_{exv} + U_{ele}.
+  U_{nb} = U_{bstk} + U_{bp} + U_{cstk} + U_{exv} + U_{ele}.
 \end{equation}
 
 
@@ -157,7 +157,7 @@ The nonbonded potentials include these terms:
 \end{smallpage}
 
 \subsubsection{Dihedral Angle}
-\label{sec:dna_3spn2c_potential_angle}
+\label{sec:dna_3spn2c_potential_dihedral_angle}
 
 The dihedral angle potential in the 3SPN.2C model contains two parts:
 \begin{enumerate}
@@ -191,7 +191,7 @@ The dihedral angle potential in the 3SPN.2C model contains two parts:
 \begin{smallpage}{3SPN.2C dihedral angle potential (periodic)}<white>
   \begin{equation}
     \label{eq:dna_3spn2c_local_dihedral_periodic}
-    U_{dih, periodic} = k_{\phi, periodic} [1+\cos(\phi_i - \phi_{ i,0 })].
+    U_{dih, periodic} = k_{\phi, periodic} \big[ 1+\cos(\phi_i - \phi_{ i,0 }) \big].
   \end{equation}
   \tcblower
   \begin{itemize}
@@ -206,3 +206,23 @@ The dihedral angle potential in the 3SPN.2C model contains two parts:
   \item $k_{\phi, periodic} = 2.0\ \mathrm{kJ/mol}$.
   \end{itemize}
 \end{smallpage}
+
+
+\subsubsection{Base Stacking Interactions}
+\label{sec:dna_3spn2c_potential_bstk}
+
+Before we introduce the nonbonded terms, we would like to first show the
+topology of the double stranded DNA and clarify the CG particles involved in the
+base-base interaction terms (see Figure~\ref{fig:DNA_3spn2c_nonbonded_all}).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/DNA_3spn2c_nonbonded_all.png}
+  \caption{The base-related nonbonded interactions among DNA CG particles.  Here
+  we introduce local indices (circled numbers) for easy understanding.  The
+  base-stacking interactinos are calculated for the neighboring bases.  The
+  base-pairing interactions are considered for Watson-Crick pairs, namely, the A-T
+  and G-C pairs.   Whereas the cross-stacking terms are only considered for
+  bases next to the pairsing bases.}
+  \label{fig:DNA_3spn2c_nonbonded_all}
+\end{figure}
