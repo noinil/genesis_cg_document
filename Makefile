@@ -1,4 +1,4 @@
-# variables
+# variables 
 TEXFILE = genesis-cg-doc
 COMPILE = latexmk -shell-escape
 RM = rm -rf
@@ -10,4 +10,4 @@ all :
 	$(COMPILE) $(TEXFILE)
 clean :
 	$(COMPILE) -C
-	@$(RM) auto/ tex/auto/ tex/*.aux *.nav *.vrb *.snm _minted-$(TEXFILE)
+	@$(RM) auto/ tex/auto/ tex/*.aux *.nav *.vrb *.snm _minted-$(TEXFILE) *.bbl
