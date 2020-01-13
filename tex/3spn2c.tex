@@ -477,3 +477,32 @@ the following conditions:
     \end{tabular}
   \end{center}
 \end{smallpage}
+
+
+
+\subsubsection{Electrostatic Interactions}
+\label{sec:dna_3spn2c_potential_ele}
+
+
+\begin{smallpage}{3SPN.2C electrostatic interaction}<white>
+  \begin{equation}
+    \label{eq:dna_3spn2c_nonlocal_ele}
+    U_{ele} = \sum_{i<j}^{n_{ele}}\frac{q_i q_j e^{-r_{ij}/\lambda_D}}{4\pi \epsilon_0 \epsilon(T, C) r_{ij}}.
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Particles involved:
+    \begin{itemize}
+    \item all non-neighboring phosphates.
+    \end{itemize}
+  \item $q_{i} = -0.6 e_c$.
+  \item The Debye length $\displaystyle \lambda_D = \sqrt{\frac{\epsilon_0 \epsilon(T, C)}{2\beta
+        N_A e_c^2 I}}$, where $\beta=( k_B T )^{-1}$, $N_A$ is Avogadro's
+    number, $I$ is ionic strength, $T$ is temperature, and $C$ is the molarity of NaCl.
+  \item The solution dieletric permittivity $\displaystyle \epsilon(T, C) = \epsilon(T)a(C)  $, where:
+    \begin{itemize}
+    \item $\epsilon(T) = 249.4 - 0.788T + 7.20\times10^{-4} T^2 $.
+    \item $a(C) = 1.000 - 0.2551 C + 5.151\times10^{-2} C^2 - 6.889\times 10^{-3} C^3 $.
+    \end{itemize}
+  \end{itemize}
+\end{smallpage}
