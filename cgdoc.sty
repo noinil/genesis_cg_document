@@ -27,6 +27,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{fancyhdr}
+\RequirePackage{hyperref}
 \RequirePackage[Sonny]{fncychap}
 \RequirePackage[square,comma,numbers,sort&compress]{natbib}
 
@@ -93,10 +94,10 @@
   \definecolor{cold}{HTML}{B7ACC0}
 }
 \newcommand{\palette@east}{
-  \definecolor{cola}{HTML}{EF7674}
-  \definecolor{colb}{HTML}{EC5766}
-  \definecolor{colc}{HTML}{DA344D}
-  \definecolor{cold}{HTML}{D91E36}
+  \definecolor{cola}{HTML}{C70D3A}
+  \definecolor{colb}{HTML}{F45905}
+  \definecolor{colc}{HTML}{45969B}
+  \definecolor{cold}{HTML}{512C62}
 }
 \newcommand{\palette@west}{
   \definecolor{cola}{HTML}{202C39}
@@ -113,7 +114,24 @@
 \palette@blank
 \doc@palette
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% hyperref                                                                    % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\hypersetup{
+  unicode=true,
+  pdffitwindow=true,
+  pdftitle={GENESIS CG Documentation},
+  pdfauthor={cheng.tan@riken.jp},
+  pdfsubject={CG models in GENESIS},
+  pdfkeywords={coarse grained models} {molecular dynamics},
+  colorlinks=true,
+  linkcolor=cola!70!black,
+  citecolor=colb!40!black,
+  filecolor=colc!40!black,
+  urlcolor=cold!40!black
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Color box
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \NewTColorBox[auto counter,number within=section]{smallpage}{m D<>{yellow}}{%
@@ -173,6 +191,25 @@
   coltext=white,
   #3}{#2}
 
+\newcommand{\todo}{%
+  \tcbox[tcbox raise base,nobeforeafter,%
+  top=0pt,bottom=0pt,left=0mm,right=0mm,%
+  arc=1pt,outer arc=2pt,boxsep=0.5mm,colback=orange!95,coltext=white,%
+  boxrule=0mm]{TODO}
+}
+\newcommand{\warning}{%
+  \tcbox[tcbox raise base,nobeforeafter,%
+  top=0pt,bottom=0pt,left=0mm,right=0mm,%
+  arc=1pt,outer arc=2pt,boxsep=0.5mm,colback=red!85!black,coltext=white,%
+  boxrule=0mm]{Warning!}
+}
+\newcommand{\note}{%
+  \tcbox[tcbox raise base,nobeforeafter,%
+  top=0pt,bottom=0pt,left=0mm,right=0mm,%
+  arc=1pt,outer arc=2pt,boxsep=0.5mm,colback=green!55!black,coltext=white,%
+  boxrule=0mm]{Note:}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TiKZ settings...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -207,7 +244,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usemintedstyle{paraiso-dark}
 \setminted{fontsize=\scriptsize}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Math commands                                                               %

@@ -1,0 +1,71 @@
+\chapter{Protein Models}
+\label{chap:protein}
+
+
+\section{Clementi G\={o}}
+\label{sec:protein_cc_go}
+
+\todo{} Brief description and references.
+
+\subsection{Topology}
+\label{subsec:protein_cc_go_top}
+
+\todo{} Brief description of topology and possible figures.
+
+\warning{} This line is a warning!
+
+\note{} And this is an important note!
+
+\todo{} Mass table.
+
+
+\subsection{Potentials}
+\label{subsec:protein_cc_go_potential}
+
+\todo{} Potential components...
+
+\subsubsection{Bond}
+\label{sec:protein_cc_go_potential_bond}
+
+\begin{smallpage}{Clementi G\={o} bond potential}<white>
+  \begin{equation}
+    \label{eq:protein_cc_go_local_bond}
+    U_{bond} = \sum_{i}^{bonds} k_b (r_i - r_{i,0})^2 + 100 k_b (r_i - r_{i,0})^4.
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Bonds involved:
+    \begin{itemize}
+    \item P-S
+    \item S-B
+    \item S-P
+    \end{itemize}
+  \item $r_{i, 0}$: bonds in the native structure of protein.
+  \item $k_b = 0.6\ \mathrm{kJ/mol/\angstrom^2}$.
+  \end{itemize}
+\end{smallpage}
+
+
+
+\subsubsection{Angle}
+\label{sec:protein_cc_go_potential_angle}
+
+\begin{smallpage}{Clementi G\={o} bond angle potential}<white>
+  \begin{equation}
+    \label{eq:protein_cc_go_local_angle}
+    U_{ang} = \sum_{i}^{angles} k_\theta (\theta_i - \theta_{i,0})^2.
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Angles involved:
+    \begin{itemize}
+    \item P-S-P
+    \item S-P-S
+    \item P-S-B
+    \item B-S-P
+    \end{itemize}
+  \item $\theta_{i, 0}$: based on the structure of B-form DNA.
+  \item $k_\theta$: see the table below: (unit: $\mathrm{kJ/mol/rad^2}$)
+  \end{itemize}
+\end{smallpage}
+

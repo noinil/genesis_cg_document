@@ -16,10 +16,9 @@ and major/minor groove widths~\cite{Hinckley2013, Freeman2014}.
 \label{subsec:dna_3spn2c_top}
 
 In this model, each nucleotide is represented by three CG particles, P
-(phosphate), S (sugar), and B (base), as shown in
-Figure~\ref{fig:dna_3spn2c_top}.  B has four types: A (adenine), C (cytosine), G
-(guanine), and T (thymine).  The CG particles are put at the center-of-mass of
-each chemical moiety.
+(phosphate), S (sugar), and B (base), as shown in \autoref{fig:dna_3spn2c_top}.
+B has four types: A (adenine), C (cytosine), G (guanine), and T (thymine).  The
+CG particles are put at the center-of-mass of each chemical moiety.
 
 \begin{figure}[ht]
   \centering
@@ -214,7 +213,7 @@ The dihedral angle potential in the 3SPN.2C model contains two parts:
 
 Before we introduce the nonbonded terms, we would like to first show the
 topology of the double stranded DNA and clarify the CG particles involved in the
-base-base interaction terms (see Figure~\ref{fig:DNA_3spn2c_nonbonded_all}).
+base-base interaction terms (see \autoref{fig:DNA_3spn2c_nonbonded_all}).
 
 \begin{figure}[ht]
   \centering
@@ -248,8 +247,8 @@ base-interaction potentials:
   \end{cases}
 \end{equation}
 
-In Equation~\ref{eq:dna_3spn2c_nonlocal_base_rep} and
-\ref{eq:dna_3spn2c_nonlocal_base_attr}, $r_{ij}$ is the distance between
+In ~\autoref{eq:dna_3spn2c_nonlocal_base_rep} and
+\autoref{eq:dna_3spn2c_nonlocal_base_attr}, $r_{ij}$ is the distance between
 particle $i$ and $j$, whereas $\epsilon_{ij}$ and $\alpha_{ij}$ are sequence
 dependent parameters.
 
@@ -263,12 +262,12 @@ dependent parameters.
   \end{cases}
 \end{equation}
 
-The $\theta$ in Equation~\ref{eq:dna_3spn2c_nonlocal_base_angle_mod} has
+The $\theta$ in \autoref{eq:dna_3spn2c_nonlocal_base_angle_mod} has
 different definitions in $U_{bstk}$, $U_{bp}$, and $U_{cstk}$.
 
 For the base-stacking interactions, $\theta_{BS}$ is the angle formed by
 \circled{1}-\circled{2}-\circled{6}
-(Figure~\ref{fig:DNA_3spn2c_nonbonded_bstk}).
+(\autoref{fig:DNA_3spn2c_nonbonded_bstk}).
 
 Practically, we treat the $U_{bstk}$ as a ``local'' potential, because all the
 interactions can be determined by the topology, regardless of the conformation.
@@ -291,7 +290,7 @@ $\mathcal{O}(n)$, where $n$ is the number of basepairs in DNA.
   \end{equation}
   \tcblower
   \begin{itemize}
-  \item Particles involved (see Figure~\ref{fig:DNA_3spn2c_nonbonded_bstk}):
+  \item Particles involved (see \autoref{fig:DNA_3spn2c_nonbonded_bstk}):
     \begin{itemize}
     \item $r_{ij}$: \circled{2}-\circled{6}
     \item $\theta_{BS}$: \circled{1}-\circled{2}-\circled{6}
@@ -327,7 +326,7 @@ $\mathcal{O}(n)$, where $n$ is the number of basepairs in DNA.
 It is convenient to consider the $U_{bp}$ and $U_{cstk}$ potentials at the same
 time, since $U_{cstk}$ only applies to bases next to the pairsing bases.  There
 are also several angles and dihedral angles involved in the calculation of these
-potentials (Figure~\ref{fig:DNA_3spn2c_nonbonded_bp_cstk}).
+potentials (\autoref{fig:DNA_3spn2c_nonbonded_bp_cstk}).
 
 
 \begin{figure}[ht]
@@ -366,7 +365,7 @@ the following conditions:
   \end{align}
   \tcblower
   \begin{itemize}
-  \item Particles involved (see Figure~\ref{fig:DNA_3spn2c_nonbonded_bp_cstk}):
+  \item Particles involved (see \autoref{fig:DNA_3spn2c_nonbonded_bp_cstk}):
     \begin{itemize}
     \item $r_{ij}$: \circled{2}-\circled{4}
     \item $r_{kl}$: \circled{2}-\circled{5} and \circled{4}-\circled{6}, if available
