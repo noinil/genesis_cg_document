@@ -95,3 +95,24 @@ The Clementi G\={o} model includes several terms:
 \note{} The dihedral angle potential in GENESIS has the form of $k_{\phi} \big[
 1+\cos(n\phi - \delta)\big]$, where we should set $\delta = n\phi_0 + \pi$.
 
+
+\subsubsection{Nonlocal Interactions}
+\label{sec:protein_cc_go_potential_nonlocal}
+
+\begin{smallpage}{Clementi G\={o} native contact potential}<white>
+  \begin{equation}
+    \label{eq:protein_cc_go_native_contact}
+    U_{contact} = \sum_{i}^{native contact} \varepsilon^{(n)} \big[ 5 \big( \frac{\sigma_{ij}}{r_{ij}} \big)^{12} - 6 \big( \frac{\sigma_{ij}}{r_{ij}} \big)^{10}\big].
+  \end{equation}
+  \tcblower
+  \begin{itemize}
+  \item Angles involved:
+    \begin{itemize}
+    \item C\textsubscript{$\alpha$}-C\textsubscript{$\alpha$}-C\textsubscript{$\alpha$}-C\textsubscript{$\alpha$}
+    \end{itemize}
+  \item $\phi_{i, 0}$: native value shifted by $\pi/n$.
+  \item $k_\phi^{(1)} = 1.0$.
+  \item $k_\phi^{(3)} = 0.5$.
+  \end{itemize}
+\end{smallpage}
+
